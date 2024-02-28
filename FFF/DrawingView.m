@@ -14,6 +14,8 @@
 @property (nonatomic, strong) UIButton *thicknessButton;
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *pathWidths; // Добавляем массив для хранения толщин линий
 
+@property (nonatomic, strong) UIButton *clearButton;
+
 @end
 
 @implementation DrawingView
@@ -53,6 +55,11 @@
     [self.colorButton setTitle:@"Выбрать цвет" forState:UIControlStateNormal];
     [self.colorButton addTarget:self action:@selector(selectColor) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.colorButton];
+    
+    self.clearButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.clearButton setTitle:@"Очистить" forState:UIControlStateNormal];
+    [self.clearButton addTarget:self action:@selector(clearAll) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.clearButton];
 }
 
 - (void)layoutSubviews {
@@ -62,7 +69,17 @@
     self.colorButton.frame = CGRectMake(5, 20, 120, 40);
     
     // Размещение кнопки в удобном для вас месте
-    self.thicknessButton.frame = CGRectMake(160, 20, 160, 40);
+    self.thicknessButton.frame = CGRectMake(120, 20, 160, 40);
+    
+    self.clearButton.frame = CGRectMake(240, 20, 160, 40);
+}
+
+- (void)clearAll {
+    [self.pathColors removeAllObjects];
+    [self.pathWidths removeAllObjects];
+    [self.paths removeAllObjects];
+
+    [self setNeedsDisplay];
 }
 
 - (void)selectThickness {
@@ -83,12 +100,17 @@
     UIAlertAction *thickAction = [UIAlertAction actionWithTitle:@"Толстая" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self setCurrentLineWidth:5.0];
     }];
+    
+    UIAlertAction *boldAction = [UIAlertAction actionWithTitle:@"Толстенная (ластик)" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self setCurrentLineWidth:35.0];
+    }];
 
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel handler:nil];
 
     [thicknessAlert addAction:thinAction];
     [thicknessAlert addAction:mediumAction];
     [thicknessAlert addAction:thickAction];
+    [thicknessAlert addAction:boldAction];
     [thicknessAlert addAction:cancelAction];
 
     UIViewController *rootViewController = UIApplication.sharedApplication.keyWindow.rootViewController;
@@ -112,11 +134,26 @@
     UIAlertAction *blueAction = [UIAlertAction actionWithTitle:@"Синий" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self setCurrentLineColor:[UIColor blueColor]];
     }];
+    
+    UIAlertAction *greenAction = [UIAlertAction actionWithTitle:@"Зеленый" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self setCurrentLineColor:[UIColor greenColor]];
+    }];
+    
+    UIAlertAction *yellowAction = [UIAlertAction actionWithTitle:@"Желтый" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self setCurrentLineColor:[UIColor yellowColor]];
+    }];
+    
+    UIAlertAction *whiteAction = [UIAlertAction actionWithTitle:@"Белый" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self setCurrentLineColor:[UIColor whiteColor]];
+    }];
 
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel handler:nil];
 
     [colorAlert addAction:redAction];
     [colorAlert addAction:blueAction];
+    [colorAlert addAction:greenAction];
+    [colorAlert addAction:yellowAction];
+    [colorAlert addAction:whiteAction];
     [colorAlert addAction:cancelAction];
 
     // Используем rootViewController для отображения UIAlertController
