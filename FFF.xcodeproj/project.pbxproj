@@ -14,6 +14,7 @@
 		8B5830282B8E651A000049C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5830272B8E651A000049C3 /* Assets.xcassets */; };
 		8B58302B2B8E651A000049C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B5830292B8E651A000049C3 /* LaunchScreen.storyboard */; };
 		8B58302E2B8E651A000049C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B58302D2B8E651A000049C3 /* main.m */; };
+		8B5830372B8E7566000049C3 /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5830362B8E7566000049C3 /* DrawingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		8B58302A2B8E651A000049C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B58302C2B8E651A000049C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B58302D2B8E651A000049C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8B5830362B8E7566000049C3 /* DrawingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
+		8B5830392B8E75D8000049C3 /* DrawingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 				8B58301C2B8E6519000049C3 /* AppDelegate.m */,
 				8B58301E2B8E6519000049C3 /* SceneDelegate.h */,
 				8B58301F2B8E6519000049C3 /* SceneDelegate.m */,
+				8B5830392B8E75D8000049C3 /* DrawingView.h */,
+				8B5830362B8E7566000049C3 /* DrawingView.m */,
 				8B5830212B8E6519000049C3 /* ViewController.h */,
 				8B5830222B8E6519000049C3 /* ViewController.m */,
 				8B5830242B8E6519000049C3 /* Main.storyboard */,
@@ -148,6 +153,7 @@
 				8B5830232B8E6519000049C3 /* ViewController.m in Sources */,
 				8B58301D2B8E6519000049C3 /* AppDelegate.m in Sources */,
 				8B58302E2B8E651A000049C3 /* main.m in Sources */,
+				8B5830372B8E7566000049C3 /* DrawingView.m in Sources */,
 				8B5830202B8E6519000049C3 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,7 +231,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -278,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

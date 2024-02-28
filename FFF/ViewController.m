@@ -1,11 +1,6 @@
-//
-//  ViewController.m
-//  FFF
-//
-//  Created by Дмитрий on 27.02.2024.
-//
-
+// ViewController.m
 #import "ViewController.h"
+#import "DrawingView.h"
 
 @interface ViewController ()
 
@@ -15,8 +10,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    DrawingView *drawingView = [[DrawingView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:drawingView];
 }
-
 
 @end
